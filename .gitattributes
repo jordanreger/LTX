@@ -1,0 +1,8 @@
+# Linguist overrides
+*.md linguist-detectable=true
+README.md linguist-detectable=false
+/src/wiki.md linguist-detectable=false
+/src/404.md linguist-detectable=false
+/src/about.md linguist-detectable=false
+/src/launches.md linguist-detectable=false
+/src/streams.md linguist-detectable=false

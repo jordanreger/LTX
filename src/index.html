@@ -1,0 +1,347 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+    <!-- Primary Meta Tags -->
+    <title>LTX — your one stop shop for everything space</title>
+    <meta name="title" content="LTX — your one stop shop for everything space">
+    <meta name="description" content="Learn about everything from Mars to rocket engines, watch a launch from a bunch of different views, and more.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ltx.deno.dev/">
+    <meta property="og:title" content="LTX — your one stop shop for everything space">
+    <meta property="og:description" content="Learn about everything from Mars to rocket engines, watch a launch from a bunch of different views, and more.">
+    <meta property="og:image" content="/bin/cover.svg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ltx.deno.dev/">
+    <meta property="twitter:title" content="LTX — your one stop shop for everything space">
+    <meta property="twitter:description" content="Learn about everything from Mars to rocket engines, watch a launch from a bunch of different views, and more.">
+    <meta property="twitter:image" content="/bin/cover.svg">
+
+    <!-- <link rel="icon" href="/bin/favicon.ico" sizes="any"> -->
+    <link rel="icon" href="/bin/logo.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter&family=Roboto+Mono:ital@0;1&display=swap" rel="stylesheet">
+
+    <style>
+        html {
+            background-color: #101010;
+        }
+
+        main {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100% !important;
+            min-height: 100%;
+
+            display: grid; 
+            grid-template-columns: 1fr; 
+            grid-template-rows: 1fr 11fr; 
+            gap: 0px 0px; 
+            grid-template-areas: 
+                "header"
+                "content";
+
+
+            background-color: #101010;
+        }
+
+        .header {
+            grid-area: header;
+
+            position: sticky;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+            z-index: 1;
+
+            /* background-color: #101010; */
+        }
+
+        .content {
+            grid-area: content;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+            z-index: 0;
+        }
+
+
+        #logo {
+            user-select: none;
+
+            position: absolute;
+            top: 50%;
+            left: 1.25rem;
+            transform: translateY(-50%);
+        }
+
+        .content-bg-starship {
+            user-select: none;
+
+            opacity: 25%;
+
+            position: fixed;
+            width: 125%;
+            top: 50%;
+            left: 95%;
+
+            transform: translate(-50%, -50%) rotate(-15deg);
+
+            animation-duration: 15s;
+            animation-name: starship;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes starship {
+            0% {
+                transform: translate(-50%, -50%) rotate(-15deg);
+            }
+
+            25% {
+                transform: translate(-50%, -50%) rotate(-12deg);
+            }
+
+            75% {
+                transform: translate(-50%, -50%) rotate(-17deg);
+            }
+        }
+
+        .content-info {
+            width: calc(100% - 3rem);
+
+            position: relative;
+            top: calc(50% - (1/12 * 100%));
+            left: 2rem;
+            transform: translateY(-50%);
+        }
+
+        .content-catchphrase {
+            user-select: none;
+
+            width: max-content;
+            max-width: 100%;
+            font-family: Archivo Black;
+
+            font-size: var(--content-catchphrase);
+
+            background: linear-gradient(90deg, #ffe351 0.03%, #ff9a51 45.22%, #b77eff 99.73%);
+            background-size: 150% 150%;
+
+            -webkit-animation: flame-gradient 5s ease infinite;
+            -moz-animation: flame-gradient 5s ease infinite;
+            animation: flame-gradient 5s ease infinite;
+            
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @-webkit-keyframes flame-gradient {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        @-moz-keyframes flame-gradient {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        @keyframes flame-gradient {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+
+        .content-description {
+            user-select: none;
+
+            max-width: 85%;
+            font-family: Inter;
+
+            font-size: var(--content-description);
+
+            color: #e0e0e0;
+        }
+
+        .content-buttons {
+            margin-top: 1rem;
+        }
+
+        .content-buttons-wiki {
+            background-color: #151515;
+            width: max-content;
+            padding-left: var(--content-description);
+            padding-right: var(--content-description);
+            padding-top: calc(var(--content-description) / 2);
+            padding-bottom: calc(var(--content-description) / 2);
+
+            margin-right: 0.5rem;
+            
+            border: 3px solid #212121;
+            border-radius: 5px;
+
+            color: #f0f0f0;
+            font-family: Roboto Mono;
+            font-size: var(--content-description);
+
+            user-select: none;
+
+            cursor: pointer;
+
+            transition: background-color 150ms ease-in-out, border 150ms ease-in-out;
+        }
+
+        .content-buttons-wiki:hover {
+            background-color: #212121;
+            border: 3px solid #ff9a51;
+        }
+
+        .content-buttons-launches {
+            background-color: #151515;
+            width: max-content;
+            padding-left: var(--content-description);
+            padding-right: var(--content-description);
+            padding-top: calc(var(--content-description) / 2);
+            padding-bottom: calc(var(--content-description) / 2);
+            
+            border: 3px solid #212121;
+            border-radius: 5px;
+
+            color: #f0f0f0;
+            font-family: Roboto Mono;
+            font-size: var(--content-description);
+
+            user-select: none;
+
+            cursor: pointer;
+
+            transition: background-color 150ms ease-in-out, border 150ms ease-in-out;
+        }
+
+        .content-buttons-launches:hover {
+            background-color: #212121;
+            border: 3px solid #ff9a51;
+        }
+
+        #tagline {
+            position: absolute;
+            left: 50%;
+            bottom: 1.25rem;
+            transform: translateX(-50%);
+
+            font-family: Inter;
+            color: #c4c4c4;
+            font-size: var(--tagline);
+            width: max-content;
+
+            user-select: none;
+        }
+
+        @media only screen and (orientation: landscape) and (max-width: 1000px) {
+            :root {
+                --content-catchphrase: 2.5rem;
+                --content-description: 1rem;
+                --tagline: 0.75rem;
+            }
+
+            #logo {
+                height: 65%;
+            }
+        }
+
+        @media only screen and (orientation: portrait) and (max-width: 1000px) {
+            :root {
+                --content-catchphrase: 2.5rem;
+                --content-description: 1rem;
+                --tagline: 0.75rem;
+            }
+
+            #logo {
+                height: 65%;
+            }
+        }
+
+        @media only screen and (orientation: landscape) and (min-width: 1000px) {
+            :root {
+                --content-catchphrase: 4rem;
+                --content-description: 1.5rem;
+                --tagline: 1.25rem;
+            }
+
+            #logo {
+                height: 50%;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        br {
+            user-select: none;
+        }
+
+        ::selection {
+            background: #ff9a51;
+            color: #101010;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0.75rem;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #101010; 
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #c4c4c4;
+            transition: background 100ms ease-in-out;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff9a51; 
+        }
+    </style>
+
+    <link rel="modulepreload" href="/src/components/menu.mjs">
+</head>
+<body>
+    <main>
+        <div class="header">
+            <img id="logo" src="/bin/logo.svg" draggable="false" />
+            <ltx-menu></ltx-menu>
+        </div>
+        <div class="content">
+            <img class="content-bg-starship" src="/bin/starship-diagram-back.svg" draggable="false">
+            <div class="content-info">
+                <div class="content-catchphrase">Your one stop shop<br/>for everything space.</div>
+                <div class="content-description">Learn about everything from Mars to rocket engines,<br/>watch a launch from a bunch of different views, and more.</div>
+                <br/>
+                <div class="content-buttons">
+                    <a href="/wiki"><span class="content-buttons-wiki">Wiki</span></a><a href="/launches"><span class="content-buttons-launches">Launches</span></a>
+                </div>
+            </div>
+            <div id="tagline">built with ♡ for space. coming soon</div>
+        </div>
+    </main>
+
+    <script src="/src/components/menu.mjs" type="module"></script>
+</body>
+</html>
